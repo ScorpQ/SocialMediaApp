@@ -1,0 +1,10 @@
+README.md
+.prettierrc
+jsconfig.json
+next.config.mjs
+package-lock.json
+package.json
+src/app/globals.css
+src/app/layout.jsx
+src/app/page.jsx
+src/app/page.module.css
