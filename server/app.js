@@ -1,6 +1,7 @@
 // type 'nodemon app.js' for initilize project
 const express = require('express');
 const bodyParser = require('body-parser');
+require('dotenv').config()
 
 const app = express();
 const PORT  = process.env.PORT || 3000;
@@ -15,7 +16,7 @@ app.use('/posts', require('./posts/route'));
 app.use('/users', require('./users/route'));
 
 app.get('/', (req, res) => {
-    res.status(200).send('A');
+    res.status(200).send('Succes.');
 })
 
 app.listen(PORT, () => {
