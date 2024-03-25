@@ -1,17 +1,24 @@
-const modul = require('./module')
 const DB = require('../config/mysql');
+const {getUsers} = require('./model')
+
 
 //There is no logic.
-const getAllUser = (req, res, next) => {
-    /*
-    console.log( await modul.data())
-    res.send( modul.data())
-    */
-    DB.query('SELECT * FROM users', (error, result) => {
-        res.send(result[1].name);
-    })
+const AuthController = {
+    register: async (req, res, next) => {
+        try {
+            res.send(await getUsers(req.body.name))
+        } catch (e) {
+            res.status(e.statusCode || 400).send(e.message)
+        }
+    },
+
+    login: async (req, res, next) => {
+        try {
+            res.send(await getUsers(req.body.name))
+        } catch (e) {
+            res.status(e.statusCode || 400).send(e.message)
+        }
+    }
 }
 
-
-
-module.exports = { getAllUser };
+module.exports = AuthController;

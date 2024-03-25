@@ -11,6 +11,7 @@ app.use(bodyParser.json());
 
 app.use('/auths', require('./auths/route'));
 
+
 /*
 app.use('/comments', require('./comments/route'));
 app.use('/likes', require('./likes/route'));
