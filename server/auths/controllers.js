@@ -1,26 +1,17 @@
-const modal = require('./modal')
-const mysql = require("mysql");
+const modul = require('./module')
+const DB = require('../config/mysql');
+
+//There is no logic.
 const getAllUser = (req, res, next) => {
-
-    const connection = mysql.createConnection({
-        host: process.env.HOST,
-        user: process.env.USER,
-        password: process.env.PASSWORD,
-        database: process.env.DATABASE
+    /*
+    console.log( await modul.data())
+    res.send( modul.data())
+    */
+    DB.query('SELECT * FROM users', (error, result) => {
+        res.send(result[1].name);
     })
-
-    connection.connect()
-
-    connection.query('SELECT * FROM users' +
-        '', (err, rows, fields) => {
-        if (err) throw err
-        console.log(rows[0].name)
-        res.send(rows[0].name);
-    })
-
-    connection.end()
-
 }
+
 
 
 module.exports = { getAllUser };
