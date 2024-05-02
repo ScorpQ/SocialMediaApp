@@ -1,7 +1,9 @@
 const BCRYPT = require('bcrypt');
+const jwt = require('jsonwebtoken');
 const DB = require('../config/mysql');
+const {compareSync} = require("bcrypt");
 
-
+let USER_ID_COUNT = 0;
 DB.connect((err) => {
     if (err) {
         console.error('Error connecting to the database: ' + err.stack);
@@ -22,6 +24,8 @@ DB.connect((err) => {
 // Fakat sadece callback'in çıktısını alabilmek için mi promise kullandık yoksa
 // callback içerisindeki DB işlemimiz bir asenkron işlem miydi o yüzden mi kullandık bilinmiyor.
 // TEST ET VE ÖĞREN.
+
+// Kullanıcı adı daha önce kullanılmış mı diye kontrol eder.
 const checkCredentials = (newCredentials) => {
     const q = 'SELECT * FROM users WHERE user_name = ?';
     return new Promise((myResolve, myReject) => {
@@ -62,26 +66,26 @@ const registerNewUser = (newCredentials) => {
     })
 }
 */
-
     //My way
-    const q = 'INSERT INTO users SET ?'
-    const data = {
-        users_id: newCredentials.users_id,
-        name: newCredentials.name,
-        password: BCRYPT.hashSync(newCredentials.password, BCRYPT.genSaltSync()),
-        email: newCredentials.email,
-        user_name: newCredentials.user_name
-    }
-    return new Promise((myResolve, myReject) => {
-        DB.query(q, data, (error, result) => {
-            if (error) {
-                console.log(error.message)
-                myReject(error);
-            } else {
-                myResolve(result);
-            }
-        });
-    })
+        const q = 'INSERT INTO users SET ?'
+        const data = {
+            users_id: USER_ID_COUNT,
+            name: newCredentials.name,
+            password: BCRYPT.hashSync(newCredentials.password, BCRYPT.genSaltSync()),
+            email: newCredentials.email,
+            user_name: newCredentials.user_name
+        }
+        return new Promise((myResolve, myReject) => {
+            DB.query(q, data, (error, result) => {
+                if (error) {
+                    console.log(error.message)
+                    myReject(error);
+                } else {
+                    USER_ID_COUNT++;
+                    myResolve(result);
+                }
+            });
+        })
 }
 
 
@@ -100,12 +104,18 @@ const logIn = (credentials) => {
                 myReject(ERR);
             }
             else{
-                //
-                //
-                //
-                //
+                //const data = JSON.parse(JSON.stringify(result));
+                const checkPassword = BCRYPT.compareSync(credentials.password, result[0].password)
+                if(!checkPassword){
+                    const ERR = new Error('Username or Password wrong.');
+                    ERR.statusCode = 409;
+                    myReject(ERR);
+                }
+                //console.log(checkPassword)
+                myResolve(result)
             }
         });
+
     })
 }
 

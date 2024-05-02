@@ -2,12 +2,41 @@
 import { Button, Box, Flex, Text, TextInput, Group } from '@mantine/core'
 import classes from './login.module.css'
 import { useRouter } from 'next/navigation'
-
-// good
-//import ReservationCard from './ReservationCard'
+import { useState, useEffect, useContext } from 'react'
+import { AuthContext } from '../../context/authContext'
 
 export default function Page() {
   const router = useRouter()
+  const { login } = useContext(AuthContext)
+  const [credentials, setCredentials] = useState({
+    user_name: '',
+    password: '',
+  })
+  const [errorMessage, setErrorMessage] = useState({
+    error: false,
+    message: '',
+  })
+
+  const handleChange = ({ target }) => {
+    setCredentials((prev) => ({
+      ...prev,
+      [target.name]: target.value,
+    }))
+  }
+
+  const handleClick = async () => {
+    try{
+      await login(credentials)
+      console.log(await login(credentials))
+      router.push('/')
+    }catch(e){
+      setErrorMessage({
+        error: true,  
+        message: e.response.data, 
+      })
+    }
+  }
+
 
   return (
     <Flex justify='center' align='center' className={classes.loginPage}>
@@ -25,9 +54,28 @@ export default function Page() {
         </Group>
         <Group className={classes.rightPanel}>
           <Text className={classes.rightTitleText}>Login</Text>
-          <TextInput variant='filled' description='Username' placeholder='Username' w='100%' pr='50' />
-          <TextInput variant='filled' description='Password' placeholder='Password' w='100%' pr='50' />
-          <Button className={classes.button}>Login</Button>
+          <TextInput
+            onChange={handleChange}
+            name='user_name'
+            variant='filled'
+            description='Username'
+            placeholder='Username'
+            w='100%'
+            pr='50'
+          />
+          <TextInput
+            onChange={handleChange}
+            name='password'
+            variant='filled'
+            description='Password'
+            placeholder='Password'
+            w='100%'
+            pr='50'
+          />
+          <Button onClick={handleClick} className={classes.button}> 
+            Login
+          </Button>
+          { errorMessage.error && errorMessage.message}
         </Group>
       </Flex>
     </Flex>
