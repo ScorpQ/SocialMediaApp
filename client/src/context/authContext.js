@@ -9,7 +9,7 @@ export const AuthContext = createContext('asdf')
 
 
 export const AuthContextProvider = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState(JSON.parse(localStorage.getItem("EWFWEFW")) || null);
+  const [currentUser, setCurrentUser] = useState(JSON.parse(localStorage.getItem("user")) || null);
 
   const login = async (credentials) => {
     return await axios({
