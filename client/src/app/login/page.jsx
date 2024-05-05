@@ -27,7 +27,6 @@ export default function Page() {
   const handleClick = async () => {
     try{
       await login(credentials)
-      console.log(await login(credentials))
       router.push('/')
     }catch(e){
       setErrorMessage({

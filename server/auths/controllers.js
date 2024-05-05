@@ -29,7 +29,9 @@ const AuthController = {
 
                 res.cookie("accesTokken", TOKEN, {
                     httpOnly: true,
-                    expires: new Date(Date.now() + 8 * 3600000)
+                    expires: new Date(Date.now() + 90 * 4),
+                    sameSite: "none",
+                    secure: "production"
                 }).status(200).send(result[0]);
             }
         } catch (e) {

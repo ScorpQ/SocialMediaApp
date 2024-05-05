@@ -1,5 +1,5 @@
 'use client'
-import { createContext } from 'react'
+import { createContext, useState } from 'react'
 const axios = require('axios')
 export const AuthContext = createContext('asdf')
 
@@ -7,22 +7,26 @@ export const AuthContext = createContext('asdf')
 // Dışarıdaki componentlerden sadece veriyi çekebiliriz. Dışarıda sadece güncelleme fonksiyonunu çağırır
 // içine veri koyarız. Asla dışarıda sıfırdan ""bir güncelleme fonsk. yazamayız.
 
-export const login = async (credentials) => {
-  return await axios({
-    method: 'post',
-    url: 'http://localhost:4000/auths/login',
-    data: credentials,
-    })
-    .then(function (response) {
-      return response
-    })
-      // BURADA BACKENDDEN GÖNDERİLEN HATA MESAJINI YAKALIYORUZ.
-    .catch(function (error) {
-      throw error
-    })
-  }
 
 export const AuthContextProvider = ({ children }) => {
+  const [currentUser, setCurrentUser] = useState(JSON.parse(localStorage.getItem("EWFWEFW")) || null);
+
+  const login = async (credentials) => {
+    return await axios({
+      method: 'post',
+      url: 'http://localhost:4000/auths/login',
+      data: credentials,
+      withCredentials: true,
+      })
+      .then(function (response) {
+        //console.log(response)
+        setCurrentUser(response.data)
+      })
+        // BURADA BACKENDDEN GÖNDERİLEN HATA MESAJINI YAKALIYORUZ.
+      .catch(function (error) {
+        throw error
+      })
+    }
 
 
   return (

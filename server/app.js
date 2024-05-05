@@ -3,19 +3,23 @@ var cors = require('cors')
 const express = require('express');
 const auth = require('./middleware/auth')
 const bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser')
 require('dotenv').config()
 
 
 const app = express();
 const PORT  = process.env.PORT || 4000;
 
-app.use(express.static('public'));
-app.use(bodyParser.json());
-app.use(cors())
 app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Credentials', true);
+    res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
     req.X = "SS"; // Bunu taşıyıp başka dosyada da kullanabiliyor muyuz diye kontrol ettim.
     next();
 });
+app.use(express.static('public'));
+app.use(bodyParser.json());
+app.use(cookieParser())
+app.use(cors({ origin: 'http://localhost:3000'}));
 
 app.use('/auths' , require('./auths/route'));
 /*
