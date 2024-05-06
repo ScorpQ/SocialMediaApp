@@ -10,3 +10,36 @@
     color-scheme: dark;
   }
 }
+
+/* Light Theme */
+.theme-light {
+  color: #000;
+  background-color: white;
+  .theme-logo {
+    color: darkblue;
+  }
+  background-color: #f6f3f3;
+  color: #555;
+  border-color: lightgray;
+}
+
+/* Dark Theme */
+.theme-dark {
+  color: whitesmoke;
+  background-color: #222;
+  background-color: #333;
+  color: lightgray;
+  border-color: #444;
+}
+.theme-logo {
+  color: white;
+}
+
+/* Media Queries */
+@media (max-width: 480px) {
+  /* Mobile Styles */
+}
+
+@media (max-width: 960px) {
+  /* Tablet Styles */
+}

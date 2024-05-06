@@ -1,10 +1,10 @@
 'use client'
-const sass = require('sass');
 import { useContext } from 'react'
 import { AuthContext } from '../context/authContext'
-
-// good
-import Navbar from '../components/navbar'
+import Stories from "../components/stories"
+import Posts from "../components/posts"
+import Share from "../components/share"
+import "./globals.css"
 
 
 export default function Home() {
@@ -12,8 +12,10 @@ export default function Home() {
 
   console.log(currentUser)
   return (
-<>
-  <Navbar/>
-  <h1>TEST</h1></>
+    <div className="home">
+      <Stories/>
+      <Share/>
+      <Posts/>
+  </div>
   )
 }
