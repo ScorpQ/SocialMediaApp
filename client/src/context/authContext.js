@@ -9,7 +9,7 @@ export const AuthContext = createContext('asdf')
 
 
 export const AuthContextProvider = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState(JSON.parse(localStorage.getItem("user")) || null);
+  const [currentUser, setCurrentUser] = useState();
 
   const login = async (credentials) => {
     return await axios({
@@ -30,7 +30,7 @@ export const AuthContextProvider = ({ children }) => {
 
 
   return (
-    <AuthContext.Provider value={{ login }}>
+    <AuthContext.Provider value={{ currentUser, login }}>
       {children}
     </AuthContext.Provider>
   );

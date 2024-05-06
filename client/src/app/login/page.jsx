@@ -12,6 +12,7 @@ export default function Page() {
     user_name: '',
     password: '',
   })
+
   const [errorMessage, setErrorMessage] = useState({
     error: false,
     message: '',
@@ -35,7 +36,6 @@ export default function Page() {
       })
     }
   }
-
 
   return (
     <Flex justify='center' align='center' className={classes.loginPage}>
