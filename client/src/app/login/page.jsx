@@ -26,13 +26,13 @@ export default function Page() {
   }
 
   const handleClick = async () => {
-    try{
+    try {
       await login(credentials)
       router.push('/')
-    }catch(e){
+    } catch (e) {
       setErrorMessage({
-        error: true,  
-        message: e.response.data, 
+        error: true,
+        message: e.response.data,
       })
     }
   }
@@ -71,10 +71,10 @@ export default function Page() {
             w='100%'
             pr='50'
           />
-          <Button onClick={handleClick} className={classes.button}> 
+          <Button onClick={handleClick} className={classes.button}>
             Login
           </Button>
-          { errorMessage.error && errorMessage.message}
+          {errorMessage.error && errorMessage.message}
         </Group>
       </Flex>
     </Flex>

@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0354b0e5-11a5-457b-ae38-5f869214d262" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../../../projeler/mutfak/backend/src/modules/mongotag/schemas/muh-anno-date-set.schema.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/auths/controllers.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/auths/controllers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../projeler/mutfak/backend/src/modules/bkb_muhakemat/bkb_muhakemat.resolver.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../projeler/mutfak/backend/src/modules/bkb_muhakemat/bkb_muhakemat.resolver.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../projeler/mutfak/backend/src/modules/bkb_muhakemat/bkb_muhakemat.schema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../projeler/mutfak/backend/src/modules/bkb_muhakemat/bkb_muhakemat.schema.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../projeler/mutfak/backend/src/modules/bkb_muhakemat/bkb_muhakemat.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../projeler/mutfak/backend/src/modules/bkb_muhakemat/bkb_muhakemat.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../projeler/mutfak/backend/src/modules/muhakemat_module/muhakemat.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../projeler/mutfak/backend/src/modules/muhakemat_module/muhakemat.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

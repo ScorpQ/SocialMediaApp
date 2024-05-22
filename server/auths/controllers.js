@@ -27,9 +27,9 @@ const AuthController = {
                     id: result[0].password
                 }, "secretKey");
 
-                res.cookie("accesTokken", TOKEN, {
+                res.cookie("ZaTokken", TOKEN, {
                     httpOnly: true,
-                    expires: new Date(Date.now() + 90 * 40000),
+                    expires: new Date(Date.now() + 86400000), // 1 Day = 24 Hrs = 24*60*60 = 86400.
                     sameSite: "none",
                     secure: "production"
                 }).status(200).send(result[0]);
