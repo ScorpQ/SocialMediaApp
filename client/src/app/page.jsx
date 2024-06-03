@@ -8,9 +8,6 @@ import "./globals.css"
 
 
 export default function Home() {
-  const { currentUser } = useContext(AuthContext)
-
-  console.log(currentUser)
   return (
     <div className="home">
       <Stories/>

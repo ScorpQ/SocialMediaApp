@@ -8,10 +8,5 @@ auths.post('/register', AuthController.register);
 auths.post('/login', AuthController.login);
 auths.post('/logout', AuthController.logOut);
 
-/*
-auths.post('/login', login);
-auths.post('/logout', logout);
- */
-
 
 module.exports = auths;

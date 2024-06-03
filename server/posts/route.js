@@ -1,7 +1,6 @@
-const users = require('express').Router();
+const posts = require('express').Router();
+const postsController = require('./controllers')
 
-users.get('/', function(req, res) {
-    res.send('Hello from POSTS root route.');
-});
+posts.post('/', postsController.getPost);
 
-module.exports = users;
+module.exports = posts;

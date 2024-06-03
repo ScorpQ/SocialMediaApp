@@ -4,13 +4,7 @@ const DB = require('../config/mysql');
 const {compareSync} = require("bcrypt");
 
 let USER_ID_COUNT = 0;
-DB.connect((err) => {
-    if (err) {
-        console.error('Error connecting to the database: ' + err.stack);
-        return;
-    }
-    console.log('Connected to the database as ID ' + DB.threadId);
-});
+
 
 
 //https://www.reddit.com/r/node/comments/o2zr8m/how_to_retrieve_value_returned_by_a_callback/

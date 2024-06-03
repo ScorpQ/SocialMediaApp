@@ -7,9 +7,8 @@ export const AuthContext = createContext('asdf')
 // Dışarıdaki componentlerden sadece veriyi çekebiliriz. Dışarıda sadece güncelleme fonksiyonunu çağırır
 // içine veri koyarız. Asla dışarıda sıfırdan ""bir güncelleme fonsk. yazamayız.
 
-
 export const AuthContextProvider = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState();
+  const [currentUser, setCurrentUser] = useState()
 
   const login = async (credentials) => {
     return await axios({
@@ -17,23 +16,18 @@ export const AuthContextProvider = ({ children }) => {
       url: 'http://localhost:4000/auths/login',
       data: credentials,
       withCredentials: true,
-      })
+    })
       .then(function (response) {
-        //console.log(response)
+        console.log(response.data)
         setCurrentUser(response.data)
       })
-        // BURADA BACKENDDEN GÖNDERİLEN HATA MESAJINI YAKALIYORUZ.
+      // BURADA BACKENDDEN GÖNDERİLEN HATA MESAJINI YAKALIYORUZ.
       .catch(function (error) {
         throw error
       })
-    }
+  }
 
-
-  return (
-    <AuthContext.Provider value={{ currentUser, login }}>
-      {children}
-    </AuthContext.Provider>
-  );
+  return <AuthContext.Provider value={{ currentUser, login }}>{children}</AuthContext.Provider>
 }
 
 //It doesn’t matter how many layers of components there are between the provider and the  Children.

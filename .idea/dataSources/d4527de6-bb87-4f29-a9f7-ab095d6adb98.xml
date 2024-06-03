@@ -1016,7 +1016,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <schema id="295" parent="1" name="social">
-      <LastIntrospectionLocalTimestamp>2024-04-02.20:02:00</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2024-06-03.08:54:32</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <schema id="296" parent="1" name="codecademy">
@@ -1189,7 +1189,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="333" parent="304" name="follower_id">
+    <column id="333" parent="304" name="followeryou_id">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
@@ -1253,7 +1253,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Type>btree</Type>
     </index>
     <column id="346" parent="307" name="users_id">
-      <AutoIncrement>24</AutoIncrement>
+      <AutoIncrement>30</AutoIncrement>
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
