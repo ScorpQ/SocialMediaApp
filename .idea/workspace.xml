@@ -5,20 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0354b0e5-11a5-457b-ae38-5f869214d262" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d4527de6-bb87-4f29-a9f7-ab095d6adb98.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d4527de6-bb87-4f29-a9f7-ab095d6adb98.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/page.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/page.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/post/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/post/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/posts/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/posts/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/context/authContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/context/authContext.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/auths/model.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/auths/model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/auths/route.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/auths/route.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/config/mysql.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/config/mysql.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/auths/controllers.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/auths/controllers.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/middleware/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/middleware/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/posts/route.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/posts/route.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../../projeler/mutfak/backend/src/modules/dav/dav.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../projeler/mutfak/backend/src/modules/dav/dav.controller.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../../projeler/mutfak/backend/src/modules/dav/dav.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../projeler/mutfak/backend/src/modules/dav/dav.service.ts" afterDir="false" />
     </list>

@@ -13,6 +13,7 @@ const Posts = () => {
     axios({
       method: 'post',
       url: 'http://localhost:4000/posts',
+      credentials: "include",
       data: {
         currentUserID: currentUser.users_id,
       }

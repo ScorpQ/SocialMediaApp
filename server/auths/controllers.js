@@ -22,11 +22,9 @@ const AuthController = {
         try {
             const result = await logIn(req.body);
             if(result){
-
                 const TOKEN = jwt.sign({
                     id: result[0].password
                 }, "secretKey");
-
                 res.cookie("ZaTokken", TOKEN, {
                     httpOnly: true,
                     expires: new Date(Date.now() + 86400000), // 1 Day = 24 Hrs = 24*60*60 = 86400.

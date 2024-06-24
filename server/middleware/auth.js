@@ -1,12 +1,13 @@
 const jwt = require('jsonwebtoken');
-// jwt.verify(token, secretOrPublicKey, [options, callback])
 
 const authentication = (req, res, next) => {
-    console.log(req.X)
-    console.log(jwt)
+    const token = req.cookies;
+    const ZATKN = req.headers.zaaa 
+    console.log(ZATKN)
+    //const AA = jwt.verify(token, "secretKey") BURADA HATA VAR CUNKU TOKEN BOŞ...
     next()
     // BURADA KALDIN... evet req.X taşınıyor.
-};
+};  
 
 
 module.exports = {authentication}

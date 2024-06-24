@@ -1,5 +1,5 @@
 'use client'
-import { createContext, useState } from 'react'
+import { createContext, useState,useEffect } from 'react'
 const axios = require('axios')
 export const AuthContext = createContext('asdf')
 
@@ -8,7 +8,7 @@ export const AuthContext = createContext('asdf')
 // içine veri koyarız. Asla dışarıda sıfırdan ""bir güncelleme fonsk. yazamayız.
 
 export const AuthContextProvider = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState()
+  const [currentUser, setCurrentUser] = useState(typeof window !== "undefined" ? localStorage.getItem("user") : null)
 
   const login = async (credentials) => {
     return await axios({
@@ -18,7 +18,6 @@ export const AuthContextProvider = ({ children }) => {
       withCredentials: true,
     })
       .then(function (response) {
-        console.log(response.data)
         setCurrentUser(response.data)
       })
       // BURADA BACKENDDEN GÖNDERİLEN HATA MESAJINI YAKALIYORUZ.
@@ -27,8 +26,13 @@ export const AuthContextProvider = ({ children }) => {
       })
   }
 
+  useEffect(() => {
+    setCurrentUser(localStorage.getItem("user"))
+  },[])
+
+  useEffect(() => {
+    localStorage.setItem("user", JSON.stringify(currentUser))
+  },[currentUser])
+
   return <AuthContext.Provider value={{ currentUser, login }}>{children}</AuthContext.Provider>
 }
-
-//It doesn’t matter how many layers of components there are between the provider and the  Children.
-// When a Children anywhere inside of provider calls useContext(AuthContext), it will receive "TEST" as the value.

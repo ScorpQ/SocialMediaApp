@@ -20,16 +20,17 @@ app.use(bodyParser.json());
 app.use(cookieParser())
 app.use(cors({ origin: 'http://localhost:4005'}));
 
-app.use('/auths' , authentication, require('./auths/route'));
-app.use('/posts', authentication, require('./posts/route'));
+app.use('/auths', require('./auths/route'));
+app.use('/posts', require('./posts/route'));
+
 /*
 app.use('/comments', require('./comments/route'));
 app.use('/likes', require('./likes/route'));
 app.use('/users', require('./users/route'));
 */
 
-// A GET request is made to 'http://localhost:4000' for checking.
-app.get('/', authentication , (req, res) => {
+// A GET request is made to 'http://localhost:4005' for checking.
+app.get('/', (req, res) => {
     res.status(200).send(`${req.X} and Succes.`);
 })
 
